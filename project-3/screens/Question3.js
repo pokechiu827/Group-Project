@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 
@@ -28,8 +28,8 @@ const Question3 = ({navigation, route}) => {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.question}>Question 2</Text>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+            <Text style={styles.question}>Question 3</Text>
             <TouchableOpacity style={styles.questionButton} onPress={correctAnswer}>
                 <Text style={styles.buttonText}>Answer 1</Text>
             </TouchableOpacity> 
@@ -40,19 +40,19 @@ const Question3 = ({navigation, route}) => {
                 <Text style={styles.buttonText}>Answer 3</Text>
             </TouchableOpacity>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 onPress={() => navigation.navigate("Results", {numCorrect: numCorrect})}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Next Page</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity
                 onPress={handleSignOut}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Sign out</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -61,6 +61,10 @@ export default Question3
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    contentContainer: {
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -79,6 +83,8 @@ const styles = StyleSheet.create({
     },
     question: {
         fontSize: 25,
+        padding: 50,
+        textAlign: 'center',
     },
     questionButton: {
         backgroundColor: '#0782F9',

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 
@@ -18,41 +18,58 @@ const Question2 = ({navigation, route}) => {
             .catch(error => alert(error.message))
     }
 
-    const correctAnswer = () => {
-        // setNumCorrect2(numCorrect2+1);
-        navigation.navigate("Question3", {numCorrect: numCorrect+1})
-    }
+    // const correctAnswer = () => {
+    //     navigation.navigate("Question3", {numCorrect: numCorrect+1})
+    // }
 
     const nextQuestion = () => {
         navigation.navigate("Question3", {numCorrect: numCorrect})
     }
 
+    const answer1 = () => {
+        navigation.navigate("Question3", {numCorrect: numCorrect+30})
+    }
+
+    const answer2 = () => {
+        navigation.navigate("Question3", {numCorrect: numCorrect+20})
+    }
+
+    const answer3 = () => {
+        navigation.navigate("Question3", {numCorrect: numCorrect+10})
+    }
+
+    const boxImage = {
+        uri: "https://mobileimages.lowes.com/productimages/f85bc66b-8a55-4610-bab9-699f2ff2bd40/15686221.jpg",
+    }
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.question}>Question 2</Text>
-            <TouchableOpacity style={styles.questionButton} onPress={correctAnswer}>
-                <Text style={styles.buttonText}>Answer 1</Text>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+            <Text style={styles.question}>How often do you get a styrofoam to-go box at the dining hall each week?</Text>
+            <Image style={styles.image} source={boxImage} />
+            <TouchableOpacity style={styles.questionButton} onPress={answer3}>
+                <Text style={styles.buttonText}>A few times a week</Text>
             </TouchableOpacity> 
-            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Answer 2</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={answer2}>
+                <Text style={styles.buttonText}>Once a day</Text>
             </TouchableOpacity> 
-            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Answer 3</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={answer1}>
+                <Text style={styles.buttonText}>More than once a day</Text>
             </TouchableOpacity>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 onPress={nextQuestion}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Next Page</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity
                 onPress={handleSignOut}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Sign out</Text>
             </TouchableOpacity>
-        </View>
+            <Text style={styles.emptySpace}> </Text>
+        </ScrollView>
     )
 }
 
@@ -61,6 +78,10 @@ export default Question2
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    contentContainer: {
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -77,8 +98,16 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 16,
     },
+    image: {
+        width: 160,
+        height: 160,
+        borderColor: 'black',
+        borderWidth: 1,
+        padding: 10,
+    },
     question: {
         fontSize: 25,
+        padding: 50,
     },
     questionButton: {
         backgroundColor: '#0782F9',
@@ -87,5 +116,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         marginTop: 40,
-    }
+    },
+    emptySpace: {
+        padding: 15,
+    },
 })

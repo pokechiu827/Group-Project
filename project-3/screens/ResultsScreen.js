@@ -21,7 +21,7 @@ const ResultsScreen = ({navigation, route}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>You got {numCorrect} questions right!</Text>
+            <Text style={styles.title}>Your final score is {numCorrect} out of 300!</Text>
             <Text>Email: {auth.currentUser?.email}</Text>
             <TouchableOpacity
                 onPress={handleSignOut}
@@ -57,5 +57,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 500,
+        textAlign: 'center',
     }
 })
