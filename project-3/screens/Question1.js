@@ -16,8 +16,7 @@ const Question1 = ({navigation}) => {
     }
 
     const correctAnswer = () => {
-        setNumCorrect(numCorrect+1);
-        navigation.navigate("Question2", {numCorrect: numCorrect})
+        navigation.navigate("Question2", {numCorrect: numCorrect+1})
     }
 
     const nextQuestion = () => {
@@ -30,7 +29,7 @@ const Question1 = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.question}>Question 1</Text>
-            <Text>{numCorrect}</Text>
+            {/* <Text>{numCorrect}</Text> */}
             <TouchableOpacity style={styles.questionButton} onPress={correctAnswer}>
                 <Text style={styles.buttonText}>Answer 1</Text>
             </TouchableOpacity> 
@@ -41,12 +40,12 @@ const Question1 = ({navigation}) => {
                 <Text style={styles.buttonText}>Answer 3</Text>
             </TouchableOpacity> 
             <Text>Email: {auth.currentUser?.email}</Text>
-            {/* <TouchableOpacity
-                onPress={handleNextPage}
+            <TouchableOpacity
+                onPress={nextQuestion}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Next Page</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
             <TouchableOpacity
                 onPress={handleSignOut}
                 style={styles.button}

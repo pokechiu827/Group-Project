@@ -7,7 +7,7 @@ const Question2 = ({navigation, route}) => {
     // const navigation = useNavigation()
 
     let{numCorrect} = route.params
-    // const [numCorrect2, setNumCorrect2] = useState({numCorrect});
+
 
     const handleSignOut = () => {
         auth
@@ -18,12 +18,30 @@ const Question2 = ({navigation, route}) => {
             .catch(error => alert(error.message))
     }
 
+    const correctAnswer = () => {
+        // setNumCorrect2(numCorrect2+1);
+        navigation.navigate("Question3", {numCorrect: numCorrect+1})
+    }
+
+    const nextQuestion = () => {
+        navigation.navigate("Question3", {numCorrect: numCorrect})
+    }
+
     return (
         <View style={styles.container}>
+            <Text style={styles.question}>Question 2</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={correctAnswer}>
+                <Text style={styles.buttonText}>Answer 1</Text>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Answer 2</Text>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Answer 3</Text>
+            </TouchableOpacity>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <Text>{numCorrect}</Text>
             <TouchableOpacity
-                onPress={() => navigation.navigate("Question3", {numCorrect: numCorrect})}
+                onPress={nextQuestion}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Next Page</Text>
@@ -59,4 +77,15 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 16,
     },
+    question: {
+        fontSize: 25,
+    },
+    questionButton: {
+        backgroundColor: '#0782F9',
+        width: '30%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginTop: 40,
+    }
 })

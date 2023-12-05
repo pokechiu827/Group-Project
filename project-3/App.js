@@ -20,8 +20,7 @@ export default function App() {
         <Stack.Screen name='Question1' component={Question1} />
         <Stack.Screen name='Question2' component={Question2} />
         <Stack.Screen name='Question3' component={Question3} />
-
-
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -8,6 +8,8 @@ const Question3 = ({navigation, route}) => {
 
     let{numCorrect} = route.params
 
+
+
     const handleSignOut = () => {
         auth
             .signOut()
@@ -17,10 +19,27 @@ const Question3 = ({navigation, route}) => {
             .catch(error => alert(error.message))
     }
 
+    const correctAnswer = () => {
+        navigation.navigate("Results", {numCorrect: numCorrect+1})
+    }
+
+    const nextQuestion = () => {
+        navigation.navigate("Results", {numCorrect: numCorrect})
+    }
+
     return (
         <View style={styles.container}>
+            <Text style={styles.question}>Question 2</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={correctAnswer}>
+                <Text style={styles.buttonText}>Answer 1</Text>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Answer 2</Text>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Answer 3</Text>
+            </TouchableOpacity>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <Text>{numCorrect}</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Results", {numCorrect: numCorrect})}
                 style={styles.button}
@@ -58,4 +77,15 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 16,
     },
+    question: {
+        fontSize: 25,
+    },
+    questionButton: {
+        backgroundColor: '#0782F9',
+        width: '30%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginTop: 40,
+    }
 })

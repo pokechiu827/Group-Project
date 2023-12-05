@@ -72,7 +72,7 @@ const LoginScreen = ({navigation}) => {
                     onPress={handleSignUp}
                     style={[styles.button, styles.buttonOutline]}
                 >
-                    <Text style={styles.buttonOutlineText}>Register</Text>
+                    <Text style={styles.buttonOutlineText}>Create account</Text>
                 </TouchableOpacity>
 
             </View>

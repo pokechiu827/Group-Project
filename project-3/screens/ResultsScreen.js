@@ -8,6 +8,8 @@ const ResultsScreen = ({navigation, route}) => {
 
     let {numCorrect} = route.params
 
+    // let {finalResult} = result.params
+
     const handleSignOut = () => {
         auth
             .signOut()
