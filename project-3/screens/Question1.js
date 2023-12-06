@@ -15,16 +15,8 @@ const Question1 = ({navigation}) => {
             .catch(error => alert(error.message))
     }
 
-    const answer1 = () => {
-        navigation.navigate("Question2", {numCorrect: numCorrect+30})
-    }
-
-    const answer2 = () => {
-        navigation.navigate("Question2", {numCorrect: numCorrect+20})
-    }
-
-    const answer3 = () => {
-        navigation.navigate("Question2", {numCorrect: numCorrect+10})
+    const rightAnswer = () => {
+        navigation.navigate("Question2", {numCorrect: numCorrect+1})
     }
 
     const nextQuestion = () => {
@@ -33,40 +25,26 @@ const Question1 = ({navigation}) => {
 
     const [numCorrect, setNumCorrect] = useState(0);
 
-    const carImage = {
-        uri: "https://www.kimballstock.com/images/car-stock-photos/cutout-car-images.jpg",
+    const whiteHouseImage = {
+        uri: "https://cdn.britannica.com/43/93843-050-A1F1B668/White-House-Washington-DC.jpg",
         width: 140,
         height: 100,
-    }
-
-    const planeImage = {
-        uri: "https://people.com/thmb/4ZYOrQ38_fodNbS6JXfIe7klAkI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(780x395:782x397)/American-Airlines-Pilot-080223-tout-165b7ed4edf54a75926d4ca6392ec0c6.jpg",
-        width: 140,
-        height: 100,
-    }
-
-    const trainImage = {
-        uri: "https://www.visitphilly.com/wp-content/uploads/2018/02/amtrak-acela-NE-corridor-courtesy_Amtrak_2200x1237.jpg",
-        width: 140,
-        height: 140,
     }
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.question}>What mode of transportation do you use to travel home during breaks?</Text>
-            <Image style={styles.image} source={carImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={answer1}>
-                <Text style={styles.buttonText}>Car</Text>
+            <Image style={styles.image} source={whiteHouseImage} />
+            <Text style={styles.question}>Who was the first president of the United States of America?</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Donald Trump</Text>
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
-            <Image style={styles.image} source={planeImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={answer2}>
-                <Text style={styles.buttonText}>Plane</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Abraham Lincoln</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
-            <Image style={styles.image} source={trainImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={answer3}>
-                <Text style={styles.buttonText}>Train</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
+                <Text style={styles.buttonText}>George Washington</Text>
             </TouchableOpacity> 
             <Text>Email: {auth.currentUser?.email}</Text>
             {/* <TouchableOpacity

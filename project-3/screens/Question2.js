@@ -18,43 +18,36 @@ const Question2 = ({navigation, route}) => {
             .catch(error => alert(error.message))
     }
 
-    // const correctAnswer = () => {
-    //     navigation.navigate("Question3", {numCorrect: numCorrect+1})
-    // }
+    const rightAnswer = () => {
+        navigation.navigate("Question3", {numCorrect: numCorrect+1})
+    }
 
     const nextQuestion = () => {
         navigation.navigate("Question3", {numCorrect: numCorrect})
     }
 
-    const answer1 = () => {
-        navigation.navigate("Question3", {numCorrect: numCorrect+30})
-    }
 
-    const answer2 = () => {
-        navigation.navigate("Question3", {numCorrect: numCorrect+20})
-    }
-
-    const answer3 = () => {
-        navigation.navigate("Question3", {numCorrect: numCorrect+10})
-    }
-
-    const boxImage = {
-        uri: "https://mobileimages.lowes.com/productimages/f85bc66b-8a55-4610-bab9-699f2ff2bd40/15686221.jpg",
+    const constitutionImage = {
+        uri: "https://cdn.mos.cms.futurecdn.net/HirH58ooBmy7bdFkjX9cd5.jpg",
+        width: 140,
+        height: 100,
     }
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.question}>How often do you get a styrofoam to-go box at the dining hall each week?</Text>
-            <Image style={styles.image} source={boxImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={answer3}>
-                <Text style={styles.buttonText}>A few times a week</Text>
-            </TouchableOpacity> 
-            <TouchableOpacity style={styles.questionButton} onPress={answer2}>
-                <Text style={styles.buttonText}>Once a day</Text>
-            </TouchableOpacity> 
-            <TouchableOpacity style={styles.questionButton} onPress={answer1}>
-                <Text style={styles.buttonText}>More than once a day</Text>
+            <Image style={styles.image} source={constitutionImage} />
+            <Text style={styles.question}>How many amendments are in the US Consitution?</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>12</Text>
             </TouchableOpacity>
+            <Text style={styles.emptySpace}> </Text>
+            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
+                <Text style={styles.buttonText}>27</Text>
+            </TouchableOpacity> 
+            <Text style={styles.emptySpace}> </Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>33</Text>
+            </TouchableOpacity> 
             <Text>Email: {auth.currentUser?.email}</Text>
             {/* <TouchableOpacity
                 onPress={nextQuestion}
@@ -82,6 +75,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     contentContainer: {
+        // flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -99,8 +93,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     image: {
-        width: 160,
-        height: 160,
+        width: 200,
+        height: 140,
         borderColor: 'black',
         borderWidth: 1,
         padding: 10,
@@ -108,6 +102,7 @@ const styles = StyleSheet.create({
     question: {
         fontSize: 25,
         padding: 50,
+        textAlign: 'center',
     },
     questionButton: {
         backgroundColor: '#0782F9',

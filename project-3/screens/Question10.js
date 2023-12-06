@@ -3,11 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'rea
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 
-const Question3 = ({navigation, route}) => {
+const Question10 = ({navigation, route}) => {
     // const navigation = useNavigation()
 
     let{numCorrect} = route.params
-
 
     const handleSignOut = () => {
         auth
@@ -19,34 +18,33 @@ const Question3 = ({navigation, route}) => {
     }
 
     const rightAnswer = () => {
-        navigation.navigate("Question4", {numCorrect: numCorrect+1})
+        navigation.navigate("Results", {numCorrect: numCorrect+1})
     }
 
     const nextQuestion = () => {
-        navigation.navigate("Question4", {numCorrect: numCorrect})
+        navigation.navigate("Results", {numCorrect: numCorrect})
     }
 
-
-    const worldTourImage = {
-        uri: "https://m.media-amazon.com/images/I/A1YUoH0MS7L.jpg",
+    const flagImage = {
+        uri: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
         width: 140,
         height: 100,
     }
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Image style={styles.image} source={worldTourImage} />
-            <Text style={styles.question}>Who was the first explorer to sail around the world?</Text>
+            <Image style={styles.image} source={flagImage} />
+            <Text style={styles.question}>Which of the following did not write the Declaration of Independence?</Text>
             <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Christopher Columbus</Text>
+                <Text style={styles.buttonText}>Benjamin Franklin</Text>
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
-            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
-                <Text style={styles.buttonText}>Ferdinand Magellan</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Roger Sherman</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
-            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Marco Polo</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
+                <Text style={styles.buttonText}>Alexander Hamilton</Text>
             </TouchableOpacity> 
             <Text>Email: {auth.currentUser?.email}</Text>
             {/* <TouchableOpacity
@@ -66,7 +64,7 @@ const Question3 = ({navigation, route}) => {
     )
 }
 
-export default Question3
+export default Question10
 
 const styles = StyleSheet.create({
     container: {

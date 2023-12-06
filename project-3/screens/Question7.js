@@ -3,11 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'rea
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 
-const Question3 = ({navigation, route}) => {
+const Question7 = ({navigation, route}) => {
     // const navigation = useNavigation()
 
     let{numCorrect} = route.params
-
 
     const handleSignOut = () => {
         auth
@@ -19,34 +18,33 @@ const Question3 = ({navigation, route}) => {
     }
 
     const rightAnswer = () => {
-        navigation.navigate("Question4", {numCorrect: numCorrect+1})
+        navigation.navigate("Question8", {numCorrect: numCorrect+1})
     }
 
     const nextQuestion = () => {
-        navigation.navigate("Question4", {numCorrect: numCorrect})
+        navigation.navigate("Question8", {numCorrect: numCorrect})
     }
 
-
-    const worldTourImage = {
-        uri: "https://m.media-amazon.com/images/I/A1YUoH0MS7L.jpg",
+    const churchImage = {
+        uri: "https://cdn-imgix.headout.com/microbrands-content-image/image/70c7e9051c3411a0653fa26b23c7bd6c-history%20of%20Vatican%20City.jpeg",
         width: 140,
         height: 100,
     }
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Image style={styles.image} source={worldTourImage} />
-            <Text style={styles.question}>Who was the first explorer to sail around the world?</Text>
-            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Christopher Columbus</Text>
+            <Image style={styles.image} source={churchImage} />
+            <Text style={styles.question}>Which Roman emperor legalized Christianity?</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
+                <Text style={styles.buttonText}>Constantine</Text>
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
-            <TouchableOpacity style={styles.questionButton} onPress={rightAnswer}>
-                <Text style={styles.buttonText}>Ferdinand Magellan</Text>
+            <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Caesar</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <TouchableOpacity style={styles.questionButton} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Marco Polo</Text>
+                <Text style={styles.buttonText}>Pilate</Text>
             </TouchableOpacity> 
             <Text>Email: {auth.currentUser?.email}</Text>
             {/* <TouchableOpacity
@@ -66,7 +64,7 @@ const Question3 = ({navigation, route}) => {
     )
 }
 
-export default Question3
+export default Question7
 
 const styles = StyleSheet.create({
     container: {
