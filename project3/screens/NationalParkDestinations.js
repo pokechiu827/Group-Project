@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     questionButton: {
         backgroundColor: '#0782F9',
-        width: '60%',
+        width: '40%',
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',

@@ -39,12 +39,24 @@ const USCityDestinations = ({navigation}) => {
         uri: "https://a.cdn-hotels.com/gdcs/production121/d137/d4030d17-700f-4fd1-9c05-4b1742c7a6c3.jpg?impolicy=fcrop&w=800&h=533&q=medium",
     }
 
-    const goToDetails = () => {
-
-    }
-
     const goToNYDetails = () => {
         navigation.navigate('NewYorkDetails')
+    }
+
+    const goToLosAngelesDetails = () => {
+        navigation.navigate('LosAngelesDetails')
+    }
+
+    const goToMiamiDetails = () => {
+        navigation.navigate('MiamiDetails')
+    }
+
+    const goToSanFranciscoDetails = () => {
+        navigation.navigate('SanFranciscoDetails')
+    }
+
+    const goToHonoluluDetails = () => {
+        navigation.navigate('HonoluluDetails')
     }
 
     return (
@@ -56,22 +68,22 @@ const USCityDestinations = ({navigation}) => {
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={laImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToLosAngelesDetails}>
                 <Text style={styles.buttonText}>Los Angeles</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={miamiImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToMiamiDetails}>
                 <Text style={styles.buttonText}>Miami</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={sfImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToSanFranciscoDetails}>
                 <Text style={styles.buttonText}>San Francisco</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={honoluluImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToHonoluluDetails}>
                 <Text style={styles.buttonText}>Honolulu</Text>
             </TouchableOpacity>
 

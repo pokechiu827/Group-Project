@@ -11,6 +11,10 @@ import DomesticOrInternational from './screens/DomesticOrInternational';
 import CityOrNationalPark from './screens/CityOrNationalPark';
 import NationalParkDestinations from './screens/NationalParkDestinations';
 import NewYorkDetails from './screens/NewYorkDetails';
+import LosAngelesDetails from './screens/LosAngelesDetails';
+import MiamiDetails from './screens/MiamiDetails';
+import SanFranciscoDetails from './screens/SanFranciscoDetails';
+import HonoluluDetails from './screens/HonoluluDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +30,10 @@ export default function App() {
         <Stack.Screen name='CityOrNationalPark' component={CityOrNationalPark} />  
         <Stack.Screen name='NationalParkDestinations' component={NationalParkDestinations} /> 
         <Stack.Screen name='NewYorkDetails' component={NewYorkDetails} />
+        <Stack.Screen name='LosAngelesDetails' component={LosAngelesDetails} />
+        <Stack.Screen name='MiamiDetails' component={MiamiDetails} />
+        <Stack.Screen name='SanFranciscoDetails' component={SanFranciscoDetails} />
+        <Stack.Screen name='HonoluluDetails' component={HonoluluDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

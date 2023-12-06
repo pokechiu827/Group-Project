@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image, FlatList } from 'react-native'
 import { auth } from '../firebase'
 
-const NewYorkDetails = ({navigation}) => {
+const LosAngelesDetails = ({navigation}) => {
 
     const handleSignOut = () => {
         auth
@@ -13,25 +13,25 @@ const NewYorkDetails = ({navigation}) => {
             .catch(error => alert(error.message))
     }
 
-    const nyImage = {
-        uri: "https://static01.nyt.com/images/2019/05/29/realestate/00skyline-south4/88ce0191bfc249b6aae1b472158cccc4-superJumbo.jpg",
-        width: 200,
+    const laImage = {
+        uri: "https://cdn.vox-cdn.com/uploads/chorus_asset/file/19540604/shutterstock_1309273237.jpg",
+        width: 140,
         height: 100,
     }
 
     const listOfActivities = [
-        {key: 'Go up to observatory on the 86th floor of the Empire State Building'},
-        {key: 'Take a walk through Central Park'},
-        {key: 'Visit the Statue of Liberty'}
+        {key: 'Take a walk down the Hollywood Walk of Fame'},
+        {key: 'Visit the Santa Monica Pier on Santa Monica State Beach'},
+        {key: 'Go sightseeing and visit the Hollywood Sign'}
     ]
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
             <Text style={styles.emptySpace}> </Text>
-            <Image style={styles.image} source={nyImage} />
-            <Text style={styles.bigTitle}>Planning a Trip to New York:</Text>
-            <Text style={styles.smallTitle}>Distance from Villanova: 107 miles</Text>
-            <Text style={styles.smallTitle}>Best Months to Visit: April - November</Text>
+            <Image style={styles.image} source={laImage} />
+            <Text style={styles.bigTitle}>Planning a Trip to Los Angeles:</Text>
+            <Text style={styles.smallTitle}>Distance from Villanova: 2,389 miles</Text>
+            <Text style={styles.smallTitle}>Best Months to Visit: March - May and September - November</Text>
             <Text style={styles.smallTitle}>3 Ideas for Activities:</Text>
             <FlatList
                 data={listOfActivities}
@@ -55,7 +55,7 @@ const NewYorkDetails = ({navigation}) => {
     )
 }
 
-export default NewYorkDetails
+export default LosAngelesDetails
 
 const styles = StyleSheet.create({
     container: {

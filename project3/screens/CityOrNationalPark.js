@@ -25,7 +25,7 @@ const DomesticOrInt = ({navigation}) => {
 
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.question}>City or National Park?</Text>
+            <Text style={styles.question}>Would you like to visit a US City or National Park?</Text>
             <TouchableOpacity style={styles.questionButton} onPress={cityTravel}>
                 <Text style={styles.buttonText}>US Cities</Text>
             </TouchableOpacity>
