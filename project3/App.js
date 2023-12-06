@@ -5,11 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './screens/LoginScreen';
 import ResultsScreen from './screens/ResultsScreen';
-import USDestinations from './screens/USDestinations';
+import USCityDestinations from './screens/USCityDestinations';
 import IntDestinations from './screens/IntDestinations';
 import DomesticOrInternational from './screens/DomesticOrInternational';
 import CityOrNationalPark from './screens/CityOrNationalPark';
 import NationalParkDestinations from './screens/NationalParkDestinations';
+import NewYorkDetails from './screens/NewYorkDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,10 +21,11 @@ export default function App() {
         <Stack.Screen options= {{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen name='Results' component={ResultsScreen} />
         <Stack.Screen name="DomesticOrInternational" component={DomesticOrInternational} />
-        <Stack.Screen name='USDestinations' component={USDestinations} />
+        <Stack.Screen name='USCityDestinations' component={USCityDestinations} />
         <Stack.Screen name='IntDestinations' component={IntDestinations} />     
         <Stack.Screen name='CityOrNationalPark' component={CityOrNationalPark} />  
         <Stack.Screen name='NationalParkDestinations' component={NationalParkDestinations} /> 
+        <Stack.Screen name='NewYorkDetails' component={NewYorkDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

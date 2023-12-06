@@ -20,7 +20,7 @@ const DomesticOrInt = ({navigation}) => {
     }
 
     const cityTravel = () => {
-        navigation.navigate("USDestinations")
+        navigation.navigate("USCityDestinations")
     }
 
     return (

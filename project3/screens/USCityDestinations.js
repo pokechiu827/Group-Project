@@ -43,11 +43,15 @@ const USCityDestinations = ({navigation}) => {
 
     }
 
+    const goToNYDetails = () => {
+        navigation.navigate('NewYorkDetails')
+    }
+
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
             <Text style={styles.question}>Choose a destination to view details:</Text>
             <Image style={styles.image} source={nyImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToNYDetails}>
                 <Text style={styles.buttonText}>New York</Text>
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
