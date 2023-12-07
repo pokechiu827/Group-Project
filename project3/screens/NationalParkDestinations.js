@@ -41,31 +41,51 @@ const USCityDestinations = ({navigation}) => {
 
     }
 
+    const goToAcadiaDetails = () =>{
+        navigation.navigate('AcadiaDetails')
+    }
+
+    const goToDenaliDetails = () =>{
+        navigation.navigate('DenaliDetails')
+    }
+
+    const goToGlacierDetails = () =>{
+        navigation.navigate('GlacierDetails')
+    }
+
+    const goToGrandCanyonDetails = () =>{
+        navigation.navigate('GrandCanyonDetails')
+    }
+
+    const goToYosemiteDetails = () =>{
+        navigation.navigate('YosemiteDetails')
+    }
+
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
             <Text style={styles.question}>Choose a destination to view details:</Text>
             <Image style={styles.image} source={gcImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToGrandCanyonDetails}>
                 <Text style={styles.buttonText}>Grand Canyon National Park, AZ</Text>
             </TouchableOpacity>
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={acadiaImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToAcadiaDetails}>
                 <Text style={styles.buttonText}>Acadia National Park, ME</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={yosemiteImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToYosemiteDetails}>
                 <Text style={styles.buttonText}>Yosemite National Park, CA</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={glacierImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToGlacierDetails}>
                 <Text style={styles.buttonText}>Glacier National Park, MT</Text>
             </TouchableOpacity> 
             <Text style={styles.emptySpace}> </Text>
             <Image style={styles.image} source={denaliImage} />
-            <TouchableOpacity style={styles.questionButton} onPress={goToDetails}>
+            <TouchableOpacity style={styles.questionButton} onPress={goToDenaliDetails}>
                 <Text style={styles.buttonText}>Denali National Park, AK</Text>
             </TouchableOpacity>
 
